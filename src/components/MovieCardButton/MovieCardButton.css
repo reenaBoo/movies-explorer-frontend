@@ -1,0 +1,33 @@
+.movie-card__button_saved {
+    background-color: #EE3465;
+    background-image: url('../../images/check-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px 46px;
+    border: none;
+    border-radius: 30px;
+    margin: 18px auto;
+}
+
+.movie-card__button_save {
+    background-color: #F9F9F9;
+    padding: 12px 46px;
+    border: none;
+    margin: 18px auto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 11px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.movie-card__button-fav {
+    background-color: #F9F9F9;
+    background-image: url('../../images/fav-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px 46px;
+    border: none;
+    margin: 18px auto;
+    border-radius: 30px;
+}

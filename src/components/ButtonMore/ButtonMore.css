@@ -1,0 +1,19 @@
+.button-more {
+    padding: 50px 70px 80px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.button-more__button {
+    background-color: #F9F9F9;
+    padding: 10px 60px;
+    width: 200px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    cursor: pointer;
+}

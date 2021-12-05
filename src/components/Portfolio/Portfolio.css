@@ -1,0 +1,35 @@
+.portfolio {
+    padding: 0 70px 125px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.portfolio__title {
+    color: #A0A0A0;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 400;
+    margin: 0 0 50px 0;
+}
+
+.portfolio__link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 0 0 19px 0;
+    border-bottom: 1px #E8E8E8 solid;
+    width: 1140px;
+    background: url("../../images/arrow.svg") right center no-repeat;
+    transition: opacity 0.2s linear;
+}
+
+.portfolio__link:hover {
+    opacity: 0.2;
+}
+
+

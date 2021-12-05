@@ -1,0 +1,15 @@
+.auth-title__profile {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+}
+
+.auth-title__sign {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 40px 0 0 0;
+    text-align: center;
+}
