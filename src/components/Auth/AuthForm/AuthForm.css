@@ -2,13 +2,14 @@
     max-width: 396px;
     margin-top: 40px;
     flex-grow: 1;
+    width: 100%;
 }
 
 .auth-form__container {
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 20px;
-    width: 396px;
+    max-width: 396px;
 }
 
 .auth-form__label {
@@ -89,3 +90,34 @@
 .auth-form__button-container {
     width: 100%;
 }
+
+.auth-form__error {
+    font-size: 10px;
+    line-height: 13px;
+    color: #EE3465;
+}
+
+@media screen and (max-width: 797px) {
+    .auth-form {
+        margin: 80px 0 157px;
+    }
+
+    .auth-form__button-submit {
+        padding: 15px 67px;
+        font-size: 12px;
+        line-height: 13px;
+    }
+
+    .auth-form__caption {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 0 7px 0 0;
+        color: #A0A0A0;
+    }
+
+    .auth-form__link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+

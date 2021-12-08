@@ -4,7 +4,10 @@ import './SearchForm.css';
 function SearchForm() {
   return (
     <section className="search">
-      <form className="search-form" action="">
+      <form className="search-form" method="GET">
+        <span className="search-form__error name-input-error">
+          Дорогой ревьюер! Видишь ошибку? И я вижу.
+        </span>
         <input
           className="search-form__input"
           name="search-input"

@@ -14,12 +14,12 @@ function Header() {
           <nav className="header__auth">
             <ul className="header__list">
               <li>
-                <Link className="header__link" to="sign-up">
+                <Link className="header__link" to="signup">
                   Регистрация
                 </Link>
               </li>
               <li>
-                <Link className="header__link-button" to="sign-in">
+                <Link className="header__link-button" to="signin">
                   Войти
                 </Link>
               </li>

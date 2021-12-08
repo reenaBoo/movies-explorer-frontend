@@ -8,3 +8,11 @@
     padding: 70px;
     min-height: 560px;
 }
+
+@media screen and (max-width: 767px) {
+    .register {
+        padding: 56px 40px 30px;
+        align-items: center;
+    }
+}
+

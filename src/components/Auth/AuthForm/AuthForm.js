@@ -10,8 +10,9 @@ function AuthForm({ buttonText, textDescription, textLink }) {
       <form className="auth-form">
         {pathname === '/signup' && (
           <div className="auth-form__container">
+            <span className="auth-form__error name-input-error">Дорогой ревьюер! Видишь ошибку? И я вижу.</span>
             <input
-              id="input-name"
+              id="name"
               className="auth-form__input"
               type="text"
               placeholder="Как вас зовут?"
@@ -19,34 +20,36 @@ function AuthForm({ buttonText, textDescription, textLink }) {
               maxLength="40"
               required
             />
-            <label className="auth-form__label" htmlFor="input-name">
+            <label className="auth-form__label" htmlFor="name">
               Имя
             </label>
           </div>
         )}
         <div className="auth-form__container">
           <input
-            id="input-email"
+            id="email"
             className="auth-form__input"
             type="email"
             placeholder="Электронная почта"
             required
           />
-          <label className="auth-form__label" htmlFor="input-email">
+          <label className="auth-form__label" htmlFor="email">
             E-mail
           </label>
+          <span className="auth-form__error email-input-error" />
         </div>
         <div className="auth-form__container">
           <input
-            id="input-password"
+            id="password"
             className="auth-form__input"
             type="password"
             placeholder="Пароль"
             required
           />
-          <label className="auth-form__label" htmlFor="input-password">
+          <label className="auth-form__label" htmlFor="password">
             Пароль
           </label>
+          <span className="auth-form__error password-input-error" />
         </div>
       </form>
       <div className="auth-form__button-container">
