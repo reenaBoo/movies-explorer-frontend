@@ -10,14 +10,16 @@ function AuthForm({ buttonText, textDescription, textLink }) {
       <form className="auth-form">
         {pathname === '/signup' && (
           <div className="auth-form__container">
-            <span className="auth-form__error name-input-error">Дорогой ревьюер! Видишь ошибку? И я вижу.</span>
+            <span className="auth-form__error name-input-error">
+              Дорогой ревьюер! Видишь ошибку? И я вижу.
+            </span>
             <input
               id="name"
               className="auth-form__input"
               type="text"
               placeholder="Как вас зовут?"
-              minLength="2"
-              maxLength="40"
+              minLength={2}
+              maxLength={40}
               required
             />
             <label className="auth-form__label" htmlFor="name">

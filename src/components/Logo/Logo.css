@@ -4,7 +4,6 @@
     background-image: url("../../images/logo.svg");
     transition: opacity .2s ease-in;
     background-repeat: no-repeat;
-    margin-right: 65px;
 }
 
 .header__logo:hover {

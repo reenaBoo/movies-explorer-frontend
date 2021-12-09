@@ -1,7 +1,7 @@
 .auth-form {
     max-width: 396px;
     margin-top: 40px;
-    flex-grow: 1;
+    flex: auto;
     width: 100%;
 }
 
@@ -89,6 +89,7 @@
 
 .auth-form__button-container {
     width: 100%;
+    flex-shrink: 0;
 }
 
 .auth-form__error {

@@ -5,14 +5,13 @@ function SearchForm() {
   return (
     <section className="search">
       <form className="search-form" method="GET">
-        <span className="search-form__error name-input-error">
-          Дорогой ревьюер! Видишь ошибку? И я вижу.
-        </span>
         <input
           className="search-form__input"
           name="search-input"
           placeholder="Фильм"
           type="search"
+          required
+          minLength={2}
         />
         <button className="search-form__submit-button" type="submit" />
       </form>

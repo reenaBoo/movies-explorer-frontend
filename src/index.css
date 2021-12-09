@@ -14,7 +14,3 @@ body {
   color: #000000;
   min-height: 100vh;
 }
-
-* {
-  outline: 1px red solid;
-}
