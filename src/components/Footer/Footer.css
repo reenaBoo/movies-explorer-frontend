@@ -1,0 +1,126 @@
+.footer {
+    background-color: #FAFAFA;
+}
+
+.footer__block {
+    padding: 79px 70px 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.footer__text {
+    margin: 0;
+    color: #A0A0A0;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px #E8E8E8 solid;
+    max-width: 1140px;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer__copyright {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.footer__nav {
+    display: flex;
+}
+
+.footer__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.footer__item {
+    list-style: none;
+    margin: 0 20px 0 0;
+}
+
+.footer__item:last-of-type {
+    margin: 0;
+}
+
+.footer__link {
+    list-style: none;
+    color: #000000;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.footer__link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #000000;
+    transition: width .3s;
+}
+
+.footer__link:hover::after {
+    width: 100%;
+}
+
+@media screen and (max-width: 1279px) {
+    .footer__block {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer__block {
+        padding: 79px 10px 10px;
+    }
+
+    .footer__text {
+        font-size: 12px;
+        line-height: 15px;
+        padding: 0 0 21px 0;
+    }
+
+    .footer__list {
+        flex-direction: column;
+    }
+
+    .footer__link {
+        list-style: none;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .footer__item {
+        margin: 0 0 5px 0;
+    }
+
+    .footer__container {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .footer__copyright {
+        font-size: 12px;
+        line-height: 15px;
+        color: #A0A0A0;
+        margin-top: 30px;
+    }
+}

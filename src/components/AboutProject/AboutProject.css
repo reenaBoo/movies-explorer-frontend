@@ -1,0 +1,163 @@
+.about-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 110px 70px;
+    box-sizing: border-box;
+    max-width: 1280px;
+}
+
+.about-project__description {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 40px;
+    margin-top: 70px;
+}
+
+.about-project__subtitle {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: start;
+    font-weight: 400;
+    margin: 0 0 26px 0;
+    letter-spacing: -0.04em;
+}
+
+.about-project__text {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: start;
+    font-weight: 400;
+    margin: 0;
+}
+
+.about-project__duration {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 110px;
+    width: 100%;
+}
+
+.about-project__duration-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-project__duration-container-backend {
+    width: 20%;
+}
+
+.about-project__duration-container-frontend {
+    width: 80%;
+}
+
+.about-project__first-week {
+    background: #2BE080;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 0;
+    padding: 9px 0;
+    box-sizing: border-box;
+}
+
+.about-project__duration-text {
+    color: #A0A0A0;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    text-align: center;
+    margin: 14px 0 0 0;
+}
+
+.about-project__fourth-weeks {
+    background: #F2F2F2;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 0;
+    padding: 9px 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1279px) {
+    .about-project {
+        padding: 90px 50px;
+    }
+
+    .about-project__subtitle {
+        margin: 0 0 22px 0;
+    }
+
+    .about-project__duration {
+        margin-top: 93px;
+    }
+
+    .about-project__description {
+        gap: 22px 30px;
+    }
+
+    .about-project__text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-project {
+        padding: 70px 18px;
+    }
+
+    .about-project__subtitle {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__duration {
+        margin-top: 60px;
+    }
+
+    .about-project__description {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        gap: 56px;
+        margin-top: 60px;
+    }
+
+    .about-project__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project__first-week {
+        font-size: 11px;
+        line-height: 14px;
+        padding: 11px 0;
+    }
+
+    .about-project__fourth-weeks {
+        font-size: 11px;
+        line-height: 14px;
+        padding: 11px 0;
+    }
+
+    .about-project__duration-text {
+        font-size: 11px;
+        line-height: 13px;
+        margin-top: 10px;
+    }
+
+    .about-project__duration-container-backend {
+        width: 35%;
+    }
+
+    .about-project__duration-container-frontend {
+        width: 65%;
+    }
+}
