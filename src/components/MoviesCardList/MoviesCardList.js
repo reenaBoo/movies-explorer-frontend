@@ -1,31 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
-import { useLocation } from 'react-router-dom';
+import ButtonMore from '../ButtonMore/ButtonMore';
+import Preloader from '../Preloader/Preloader';
 
-function MoviesCardList() {
-  const { pathname } = useLocation();
+function MoviesCardList({
+  tumbler,
+  filterCards,
+  saveCards,
+  handleSaveFilm,
+  handleDeleteFilm,
+  amountShowCards,
+  setAmountShowCards,
+  addShowCards,
+  isPreloader,
+}) {
+  const [moreButton, setMoreButton] = useState(true);
+
+  useEffect(() => {
+    if (filterCards.length <= amountShowCards) {
+      setMoreButton(false);
+    } else {
+      setMoreButton(true);
+    }
+  }, [filterCards, amountShowCards]);
+
+  // Фильтрация по состоянию тумблера
+  let tumblerFilteredArray = filterCards.filter((card) => {
+    if (!tumbler || (tumbler && card.duration <= 40)) {
+      return card;
+    }
+  });
 
   return (
-    <section className="movies-list">
-      <div className="movies-list__container">
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/movies' && <MoviesCard />}
-        {pathname === '/saved-movies' && <MoviesCard />}
-        {pathname === '/saved-movies' && <MoviesCard />}
-        {pathname === '/saved-movies' && <MoviesCard />}
-      </div>
-    </section>
+    <>
+      {isPreloader ? (
+        <Preloader />
+      ) : (
+        <>
+          <section className="movies-list">
+            <div className="movies-list__container">
+              {tumblerFilteredArray.slice(0, amountShowCards).map((card) => {
+                return (
+                  <MoviesCard
+                    key={card.id}
+                    card={card}
+                    handleSaveFilm={handleSaveFilm}
+                    handleDeleteFilm={handleDeleteFilm}
+                    saveCards={saveCards}
+                  />
+                );
+              })}
+            </div>
+          </section>
+          {moreButton && (
+            <ButtonMore
+              setAmountShowCards={setAmountShowCards}
+              amountShowCards={amountShowCards}
+              addShowCards={addShowCards}
+            />
+          )}
+        </>
+      )}
+    </>
   );
 }
 

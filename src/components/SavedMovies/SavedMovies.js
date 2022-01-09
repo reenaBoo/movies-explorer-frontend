@@ -1,16 +1,16 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import './Movies.css';
+import './SavedMovies.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function Movies({
+function SavedMovies({
+  filterSavedCards,
   tumbler,
   setTumbler,
-  filterCards,
   handleFilter,
-  setMoviesInputValue,
+  setSavedMoviesInputValue,
   amountShowCards,
   setAmountShowCards,
   addShowCards,
@@ -19,7 +19,6 @@ function Movies({
   saveCards,
   loggedIn,
   isPreloader,
-  cards,
   searchValue,
   errorText,
   error,
@@ -30,25 +29,27 @@ function Movies({
       <main className="movies">
         <SearchForm
           handleFilter={handleFilter}
-          setSearchValue={setMoviesInputValue}
+          setSearchValue={setSavedMoviesInputValue}
           tumbler={tumbler}
           setTumbler={setTumbler}
-          arrayForSearch={cards}
+          arrayForSearch={saveCards}
           searchValue={searchValue}
         />
+
         {error ? (
           <p className="error-text">{errorText}</p>
         ) : (
           <MoviesCardList
+            isPreloader={isPreloader}
             tumbler={tumbler}
-            filterCards={filterCards}
+            filterCards={filterSavedCards}
             saveCards={saveCards}
             handleSaveFilm={handleSaveFilm}
             handleDeleteFilm={handleDeleteFilm}
             amountShowCards={amountShowCards}
             setAmountShowCards={setAmountShowCards}
             addShowCards={addShowCards}
-            isPreloader={isPreloader}
+            errorText={errorText}
           />
         )}
       </main>
@@ -57,4 +58,4 @@ function Movies({
   );
 }
 
-export default Movies;
+export default SavedMovies;

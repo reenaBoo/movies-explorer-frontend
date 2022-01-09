@@ -16,7 +16,7 @@
 * Применены технологии: Flex, Grid-layout, media-запросы.
 * UX интерфейс
 * Разработан на ReactJS, ES6
-* Использованы хуки useState, useEffect, useContext, useHistory
+* Использованы хуки useState, useEffect, useContext, useNavigate
 
 **Сайт**
 

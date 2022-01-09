@@ -1,35 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SearchForm.css';
 
-function SearchForm({ search, onCheckboxClick }) {
-  const [inputValue, setInputValue] = useState('');
-
-  function handleChangeQuery(evt) {
-    setInputValue(evt.target.value);
+function SearchForm({
+  handleFilter,
+  setSearchValue,
+  tumbler,
+  setTumbler,
+  arrayForSearch,
+  searchValue,
+}) {
+  function handleEdit(evt) {
+    setSearchValue(evt.target.value);
   }
 
-  function handleSubmitSearch(evt) {
-    evt.preventDefault();
-    search(inputValue);
+  function changeTumbler() {
+    setTumbler(tumbler ? false : true);
   }
 
   return (
     <section className="search">
-      <form className="search-form" method="GET" onSubmit={handleSubmitSearch}>
+      <form
+        className="search-form"
+        method="GET"
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          handleFilter(arrayForSearch);
+        }}
+        noValidate
+      >
         <input
           className="search-form__input"
           name="search-input"
           placeholder="Фильм"
           type="search"
-          required
           minLength={2}
-          onChange={handleChangeQuery}
+          value={searchValue}
+          required
+          onChange={handleEdit}
         />
         <button className="search-form__submit-button" type="submit" />
       </form>
       <div className="search-form__container">
         <div className="search-form__switch">
-          <input type="checkbox" id="switch" className="search-form__switch-input" onChange={onCheckboxClick} />
+          <input
+            type="checkbox"
+            id="switch"
+            className="search-form__switch-input"
+            checked={tumbler}
+            onChange={changeTumbler}
+          />
           <label htmlFor="switch" className="search-form__switch-button" />
           <label htmlFor="switch" className="search-form__switch-circle" />
         </div>
