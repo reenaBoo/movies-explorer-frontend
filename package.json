@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "deploy": "npm run build && scp -r ./build/* administrator@51.250.31.183:/diplom/movies-explorer-frontend",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
