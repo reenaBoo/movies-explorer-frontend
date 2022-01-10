@@ -102,8 +102,8 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-  url: 'http://localhost:3001',
-  // url: 'https://api.biba.nomoredomains.work',
+  // url: 'http://localhost:3001',
+  url: 'https://api.biba.nomoredomains.work',
   headers: {
     'Content-Type': 'application/json',
   },
