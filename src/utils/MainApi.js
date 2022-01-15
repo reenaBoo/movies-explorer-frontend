@@ -17,7 +17,7 @@ class MainApi {
       headers: this._headers,
       credentials: 'include',
       body: JSON.stringify({
-        country: card.country,
+        country: card.country ? card.country : 'Неизвестно',
         director: card.director,
         duration: card.duration,
         year: card.year,

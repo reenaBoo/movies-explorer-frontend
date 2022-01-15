@@ -42,7 +42,7 @@ function SavedMovies({
           <MoviesCardList
             isPreloader={isPreloader}
             tumbler={tumbler}
-            filterCards={filterSavedCards}
+            filterCards={searchValue ? filterSavedCards : saveCards}
             saveCards={saveCards}
             handleSaveFilm={handleSaveFilm}
             handleDeleteFilm={handleDeleteFilm}

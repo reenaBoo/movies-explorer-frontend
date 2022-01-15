@@ -2,7 +2,18 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './AuthForm.css';
 
-function AuthForm({ buttonText, textDescription, textLink, onSubmit, onChange, values, errors, isValid }) {
+function AuthForm({
+  buttonText,
+  textDescription,
+  textLink,
+  onSubmit,
+  onChange,
+  values,
+  errors,
+  isValid,
+  validateEmail,
+  errorText,
+}) {
   const { pathname } = useLocation();
   return (
     <>
@@ -28,7 +39,9 @@ function AuthForm({ buttonText, textDescription, textLink, onSubmit, onChange, v
           </div>
         )}
         <div className="auth-form__container">
-          <span className="auth-form__error email-input-error">{errors.email}</span>
+          <span className="auth-form__error email-input-error">
+            {values.email ? validateEmail(values.email) && 'Email не валиден' : ''}
+          </span>
           <input
             id="email"
             name="email"
@@ -51,6 +64,7 @@ function AuthForm({ buttonText, textDescription, textLink, onSubmit, onChange, v
             className="auth-form__input"
             type="password"
             placeholder="Пароль"
+            minLength="8"
             required
             onChange={onChange}
             value={values.password || ''}
@@ -59,7 +73,12 @@ function AuthForm({ buttonText, textDescription, textLink, onSubmit, onChange, v
             Пароль
           </label>
         </div>
-        <button className="auth-form__button-submit" type="submit" disabled={!isValid}>
+        <span className="auth-form__error">{errorText}</span>
+        <button
+          className="auth-form__button-submit"
+          type="submit"
+          disabled={!isValid || validateEmail(values.email)}
+        >
           {buttonText}
         </button>
       </form>

@@ -7,9 +7,16 @@ import { mainApi } from '../../../utils/MainApi';
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../../../utils/useFormWithValidation';
 
-function Profile({ loggedIn, setLoggedIn }) {
+function Profile({
+  loggedIn,
+  setLoggedIn,
+  setFilterSavedCards,
+  setSaveCards,
+  setCards,
+  setFilterCards,
+}) {
   const navigate = useNavigate();
-  const { values, setValues, errors, handleChange } = useFormWithValidation();
+  const { values, setValues, errors, handleChange, validateEmail } = useFormWithValidation();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [isDisabled, setIsDisabled] = useState(true);
 
@@ -35,6 +42,13 @@ function Profile({ loggedIn, setLoggedIn }) {
         localStorage.removeItem('filterSavedCards');
         localStorage.removeItem('moviesInputValue');
         localStorage.removeItem('savedMoviesInputValue');
+        localStorage.removeItem('moviesTumbler');
+        localStorage.removeItem('savedMoviesTumbler');
+        setCards([]);
+        setSaveCards([]);
+        setFilterSavedCards([]);
+        setFilterCards([]);
+        setCurrentUser({});
       })
       .catch((err) => {
         console.log('Ошибка ' + err);
@@ -94,8 +108,15 @@ function Profile({ loggedIn, setLoggedIn }) {
               E-mail
             </label>
           </div>
-          <span className="profile-form__error">{errors.name || errors.email}</span>
-          <button type="submit" className="profile__button-edit" disabled={isDisabled}>
+          <span className="profile-form__error">{errors.name}</span>
+          <span className="profile-form__error">
+            {validateEmail(values.email) && 'Email не валиден'}
+          </span>
+          <button
+            type="submit"
+            className="profile__button-edit"
+            disabled={isDisabled || validateEmail(values.email)}
+          >
             Редактировать
           </button>
         </form>

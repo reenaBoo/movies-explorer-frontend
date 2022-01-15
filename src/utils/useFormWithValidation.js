@@ -23,5 +23,13 @@ export function useFormWithValidation() {
     [setValues, setErrors, setIsValid],
   );
 
-  return { values, handleChange, errors, isValid, resetForm, setValues, setIsValid };
+  function validateEmail(value) {
+    if (!/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(value)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  return { values, handleChange, errors, isValid, resetForm, setValues, setIsValid, validateEmail };
 }

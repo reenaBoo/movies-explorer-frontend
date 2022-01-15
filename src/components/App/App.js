@@ -46,19 +46,18 @@ function App() {
         navigate('/movies');
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log('err', err.message);
       });
   }
 
   useEffect(() => {
-    const localFilterCards = JSON.parse(localStorage.getItem('filterCards'))
+    const localFilterCards = JSON.parse(localStorage.getItem('filterCards'));
     if (localFilterCards) setFilterCards(localFilterCards);
-    const localFilterSaveCards = JSON.parse(localStorage.getItem('filterSavedCards'))
-    if (localFilterSaveCards) setFilterSavedCards(localFilterSaveCards);
+    const localFilterSaveCards = JSON.parse(localStorage.getItem('filterSavedCards'));
+    localFilterSaveCards ? setFilterSavedCards(localFilterSaveCards) : setFilterSavedCards([]);
     setMoviesTumbler(JSON.parse(localStorage.getItem('moviesTumbler')));
-    setSavedMoviesTumbler(JSON.parse(localStorage.getItem('savedMoviesTumbler')));
-    setMoviesInputValue(JSON.parse(localStorage.getItem('moviesInputValue')));
-    setSavedMoviesInputValue(JSON.parse(localStorage.getItem('savedMoviesInputValue')));
+    const localMoviesInputValue = JSON.parse(localStorage.getItem('moviesInputValue'));
+    if (localMoviesInputValue) setMoviesInputValue(localMoviesInputValue);
   }, []);
 
   useEffect(() => {
@@ -66,6 +65,14 @@ function App() {
       .then(([user, userCards]) => {
         setLoggedIn(true);
         setCurrentUser(user.data);
+        if (moviesInputValue !== '') {
+          setMoviesInputValue('');
+          setMoviesTumbler(false);
+        }
+        if (savedMoviesInputValue !== '') {
+          setSavedMoviesInputValue('');
+          setSavedMoviesTumbler(false);
+        }
 
         const currUserMovies = userCards.data.filter((currentUserCard) => {
           if (user.data._id === currentUserCard.owner) {
@@ -79,11 +86,11 @@ function App() {
         setCurrentUser({});
         console.log('Ошибка ' + err);
         setErrorText(
-            'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. ' +
+          'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. ' +
             'Подождите немного и попробуйте ещё раз',
         );
       });
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     moviesApi
@@ -98,7 +105,7 @@ function App() {
             'Подождите немного и попробуйте ещё раз',
         );
       });
-  }, []);
+  }, [currentUser]);
 
   // Функция добавления в избранные
   function handleSaveFilm(card) {
@@ -184,8 +191,6 @@ function App() {
 
     localStorage.setItem('filterSavedCards', JSON.stringify(newArray));
     setFilterSavedCards(JSON.parse(localStorage.getItem('filterSavedCards')));
-    localStorage.setItem('savedMoviesInputValue', JSON.stringify(savedMoviesInputValue));
-    localStorage.setItem('savedMoviesTumbler', JSON.stringify(savedMoviesTumbler));
   }
 
   // Автоматическое определение размера экрана
@@ -264,11 +269,25 @@ function App() {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute component={Profile} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <ProtectedRoute
+                component={Profile}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+                setFilterSavedCards={setFilterSavedCards}
+                setSaveCards={setSaveCards}
+                setCards={setCards}
+                setFilterCards={setFilterCards}
+              />
             }
           />
-          <Route path="/signup" element={<Register onSubmit={handleSignIn} loggedIn={loggedIn} />} />
-          <Route path="/signin" element={<Login onSubmit={handleSignIn} loggedIn={loggedIn} />} />
+          <Route
+            path="/signup"
+            element={<Register onSubmit={handleSignIn} loggedIn={loggedIn} />}
+          />
+          <Route
+            path="/signin"
+            element={<Login onSubmit={handleSignIn} loggedIn={loggedIn} errorText={errorText} />}
+          />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </CurrentUserContext.Provider>

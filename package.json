@@ -13,11 +13,12 @@
     "react-router-dom": "^6.1.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "4.0.3",
+    "validator": "^13.7.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && scp -r ./build/* administrator@51.250.31.183:/home/administrator/diplom/movies-explorer-frontend/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
