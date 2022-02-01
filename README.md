@@ -27,4 +27,4 @@
 ---
 **Домен для бэкенда дипломного проекта**
 
-🔗 http://api.biba.nomoredomains.work
+🔗 https://api.biba.nomoredomains.work
