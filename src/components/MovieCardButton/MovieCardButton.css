@@ -32,7 +32,7 @@
     opacity: .7;
 }
 
-.movie-card__button-fav {
+.movie-card__button-delete {
     background-color: #F9F9F9;
     background-image: url('../../images/fav-icon.svg');
     background-repeat: no-repeat;
@@ -43,7 +43,7 @@
     border-radius: 30px;
 }
 
-.movie-card__button-fav:hover {
+.movie-card__button-delete:hover {
     cursor: pointer;
     opacity: .7;
 }

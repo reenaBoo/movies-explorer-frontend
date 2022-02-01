@@ -53,8 +53,17 @@
     cursor: pointer;
 }
 
+.auth-form__button-submit:disabled {
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+}
+
 .auth-form__button-submit:hover {
-    opacity: .7;
+    opacity: .8;
+}
+
+.auth-form__button-submit:disabled:hover {
+    cursor: default;
 }
 
 .auth-form__sign-container {

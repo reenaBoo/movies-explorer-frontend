@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
 import './MovieCardButton.css';
-import { useLocation } from 'react-router-dom';
 
-function MovieCardButton() {
-  const { pathname } = useLocation();
-
-  const [isAdded, setIsAdded] = useState(false);
-
-  function toggleButton() {
-    setIsAdded(true);
-  }
+function MovieCardButton({ handleDeleteFilm, handleSaveFilm, card, isLike, saveCards, setIsLike }) {
+  const pathName = window.location.pathname;
 
   return (
     <>
-      {pathname === '/movies' && (
+      {pathName === '/saved-movies' ? (
         <button
-          onClick={toggleButton}
-          className={!isAdded ? 'movie-card__button_save' : 'movie-card__button_saved'}
+          className="movie-card__button-delete"
+          onClick={() => {
+            handleDeleteFilm(card);
+          }}
+        />
+      ) : (
+        <button
+          className={`${isLike ? 'movie-card__button_saved' : 'movie-card__button_save'}`}
+          onClick={() => {
+            if (isLike) {
+              handleDeleteFilm(saveCards.find((saveCard) => saveCard.movieId === card.id));
+            } else {
+              handleSaveFilm(card);
+            }
+            setIsLike(!isLike);
+          }}
         >
-          {!isAdded ? 'Сохранить' : ''}
+          {isLike ? '' : 'Сохранить'}
         </button>
       )}
-      {pathname === '/saved-movies' && <button className="movie-card__button-fav" type="button" />}
     </>
   );
 }
